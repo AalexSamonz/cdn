@@ -1,2 +1,2 @@
 # cdn
-not finish,still cant be use
+not finish,still cant be used
