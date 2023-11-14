@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端数据操作示例</title>
+    <style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+<!-- HTML代码 -->
+
+
+<button onclick="openForm()">打开表单</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeForm()">&times;</span>
+    <form id="myForm">
+      <label for="fname">姓氏：</label>
+      <input type="text" id="fname" name="fname" required>
+      <br>
+      <label for="lname">名字：</label>
+      <input type="text" id="lname" name="lname" required>
+      <br>
+      <button type="button" onclick="submitForm()">提交</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+function openForm() {
+  var modal = document.getElementById('myModal');
+  modal.style.display = 'block';
+}
+
+function closeForm() {
+  var modal = document.getElementById('myModal');
+  modal.style.display = 'none';
+}
+
+function submitForm() {
+  // 这里可以添加提交表单的逻辑
+  // 例如，获取表单数据并进行处理
+  var firstName = document.getElementById('fname').value;
+  var lastName = document.getElementById('lname').value;
+
+  // 这里可以通过AJAX将数据提交给后端处理
+  // 例如，使用Fetch API或XMLHttpRequest
+  // 示例：通过控制台输出表单数据
+  console.log('姓氏：', firstName);
+  console.log('名字：', lastName);
+
+  // 提交后关闭表单
+  closeForm();
+}
+</script>
+</body>
+</html>

@@ -1,5 +1,8 @@
 from flask import Flask, request, redirect, render_template, session
 import json
+import  requests
+import redis
+from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 app.secret_key = 'QWERTYUIOP'  # 对用户信息加密
@@ -16,6 +19,25 @@ app.secret_key = 'QWERTYUIOP'  # 对用户信息加密
 #def home():
 #    # 用户已登录，可以访问该页面
 #    return '欢迎回来！'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:123456@localhost:3306/speedcdn'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+
+
+db = SQLAlchemy(app)
+# 创建一个简单的数据模型
+class CDNGroup(db.Model):
+    group_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    group_name = db.Column(db.String(255), nullable=False)
+# 创建一个CDN域名模型
+class CDNDomain(db.Model):
+    domain_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    domain_name = db.Column(db.String(255), nullable=False)
+    domain_ip = db.Column(db.String(255), nullable=False)
+    group_id = db.Column(db.Integer, db.ForeignKey('cdn_group.group_id'))
+# 创建数据库表
+with  app.app_context():
+    db.create_all()
 
 
 @app.route('/',methods=['GET', 'POST'])
@@ -84,7 +106,7 @@ def addblackip():
         return redirect("/isok")
 
 
-#域名节点配置相关功能
+# 域名节点配置相关功能
 @app.route('/domaingroup', methods=['GET', "POST"])
 def nodegroup():
     if request.method =="GET":
@@ -129,7 +151,7 @@ def cdnnode():
             json.dump(json_obj, f, ensure_ascii=False)
             return redirect("/isok")
 
-import  requests
+
 @app.route('/cachereget',methods=['GET', "POST"])
 def cachereget():
     if  request.method=="GET":
@@ -148,19 +170,44 @@ def cachereget():
         return "ok"
 
 
-import time
+
+
 @app.route('/adddomain',methods=['GET','POST'])
 def adddomain():
     if request.method=="GET":
         return render_template("adddomain.html")
     else:
         get_domain_title=request.form.get("domaintitle")
-        get_domain_get = request.form.get("domainget")
+        get_domain_get = request.form.getlist("domainget")
         get_domain_ip = request.form.get("domainip")
-        print(get_domain_title,get_domain_get,get_domain_ip )
+   #     print(get_domain_title,get_domain_get,get_domain_ip )
+
+        # 示例：插入CDN分组和域名数据
+        group = CDNGroup(group_name=get_domain_title)
+        db.session.add(group)
+        db.session.commit()
+        get_group_id = CDNGroup.query.filter_by(group_name=get_domain_title).first()
+        get_domain_get= [line.strip() for string in get_domain_get for line in string.split('\r\n')]
+        for i in get_domain_get:
+            print(i,get_domain_ip)
+            if get_group_id:
+                domain_add=CDNDomain(domain_name=i, domain_ip=get_domain_ip, group_id=group.group_id)
+                db.session.add_all([domain_add])
+                db.session.commit()
+            else:
+                return("主键获取失败")
+
+        # 查询CDN分组和域名数据
+        groups = CDNGroup.query.all()
+        domains = CDNDomain.query.all()
+        print(groups)
+        print(domains)
+
+     #   return render_template('index.html', groups=groups, domains=domains)
+
+
+
         return("ok")
-        time.sleep(2)
-        redirect("/")
 
 @app.route('/isok')
 def index():
