@@ -57,7 +57,7 @@ def addwhiteip():
     if request.method == 'GET':
         with open("whiteip.txt","r")  as f:
             recent_white_ip=f.readlines()
-            print(recent_white_ip)
+      #      print(recent_white_ip)
             recent_white_ip= [item.strip() for item in recent_white_ip]
         #return render_template('white_ip.html', recent_white_ip= recent_white_ip)
         return render_template('white_ip.html', recent_white_ip=recent_white_ip)
@@ -74,10 +74,10 @@ def addwhiteip():
         get_white_list=request.form.getlist("whiteip")
         ip_split=",".join(get_white_list)
         with open("whiteip.txt","w")  as f:
-            print(get_white_list)
+ #           print(get_white_list)
             ip_list=ip_split.split(",")
             for i in ip_list:
-                print(i)
+  #              print(i)
                 f.write(i +"\n")
 
         return redirect("/isok")
@@ -89,7 +89,7 @@ def addblackip():
     if request.method == 'GET':
         with open("blackip.txt","r")  as f:
             recent_black_ip=f.readlines()
-            print(recent_black_ip)
+#            print(recent_black_ip)
             recent_black_ip= [item.strip() for item in recent_black_ip]
    #     return render_template('black_ip.html', recent_black_ip= recent_black_ip)
             return render_template('black_ip.html', recent_black_ip=recent_black_ip)
@@ -98,10 +98,10 @@ def addblackip():
         get_white_list=request.form.getlist("whiteip")
         ip_split=",".join(get_white_list)
         with open("blackip.txt","w")  as f:
-            print(get_white_list)
+#            print(get_white_list)
             ip_list=ip_split.split(",")
             for i in ip_list:
-                print(i)
+  #              print(i)
                 f.write(i +"\n")
         return redirect("/isok")
 
@@ -133,10 +133,10 @@ def nodegroup():
 @app.route('/cdnnode', methods=['GET', "POST"])
 def cdnnode():
     if request.method == "GET":
-        with open("domaingroup.json", "r") as f:
-            json_obj = json.load(f)
-            for key, value in json_obj.items():
-                print(key, value)
+#        with open("domaingroup.json", "r") as f:
+#            json_obj = json.load(f)
+#            for key, value in json_obj.items():
+#                print(key, value)
         return render_template("domaingroup.html")
     else:
         domain_name = request.form.get("name")
@@ -189,7 +189,7 @@ def adddomain():
         get_group_id = CDNGroup.query.filter_by(group_name=get_domain_title).first()
         get_domain_get= [line.strip() for string in get_domain_get for line in string.split('\r\n')]
         for i in get_domain_get:
-            print(i,get_domain_ip)
+   #         print(i,get_domain_ip)
             if get_group_id:
                 domain_add=CDNDomain(domain_name=i, domain_ip=get_domain_ip, group_id=group.group_id)
                 db.session.add_all([domain_add])
@@ -208,6 +208,15 @@ def adddomain():
 
 
         return("ok")
+
+
+
+@app.route('/ssss',methods=['GET'])
+def test():
+    if request.method=="GET":
+       return render_template("s1.html")
+
+
 
 @app.route('/isok')
 def index():

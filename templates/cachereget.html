@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-</head>
-<body>
+{% extends 'index1.html' %}
+
+{% block content %}
   <form  method="post">
       <!--引入文本框-->
       <label>缓存预加载，一行一个：</label>
@@ -21,5 +16,4 @@
 <!-- 引入按钮-->
       <button class="button">提交</button>
     </form>
-</body>
-</html>
+{% endblock %}

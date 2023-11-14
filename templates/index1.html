@@ -1,54 +1,88 @@
-<!DOCTYPE html>
- <html>
- <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-     <meta  charset="UTF-8">
-     <title>CrushCDN</title>
- </head>
- <body>
-<nav class="navbar is-transparent">
+
+<html>
+
+    <title>Title</title>
+
+    <header>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </header>
+    <body>
+<img src="static/logo.jpeg" width="250px" height="250px" >
+<a   style="font-size: 80px;" >SpeedCDN</a>
+<nav class="navbar" role="navigation" aria-label="main navigation" >
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+    <a class="navbar-item" href="http://192.168.0.26:5000">
+
     </a>
-    <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="http://192.168.0.26:5000/">
         Home
       </a>
+
+
+
+
+                  <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          域名节点配置
+        </a>
+
+        <div class="navbar-dropdown">
+
+
+                    <a class="navbar-item" href="http://192.168.0.26:5000/adddomain">
+            添加域名
+          </a>
+
+                    <a class="navbar-item" href="http://192.168.0.26:5000/nodegroup">
+            域名分组
+          </a>
+
+          <a class="navbar-item" href="http://192.168.0.26:5000/nodegroup">
+           域名节点分配
+          </a>
+
+        </div>
+      </div>
+
+
+
+
+
+
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
+        <a class="navbar-link">
+          防御策略
         </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://192.168.0.26:5000/whiteip">
+            白名单
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
+          <a class="navbar-item" href="http://192.168.0.26:5000/blackip">
+            黑名单
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
+          <a class="navbar-item" href="http://192.168.0.26:5000/ua">
+            UA策略配置
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
+             <a class="navbar-item" href="http://192.168.0.26:5000/cc">
+            cc防御配置
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
+          <a class="navbar-item" href="http://192.168.0.26:5000/country">
+            区域访问配置
           </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
+          <a class="navbar-item" href="http://192.168.0.26:5000/country">
+            访问速度限制
           </a>
         </div>
       </div>
@@ -57,32 +91,50 @@
 
 
 
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
+            <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          节点管理
         </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://192.168.0.26:5000/shownode">
+            cdn节点
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
+          <a class="navbar-item" href="http://192.168.0.26:5000/cdnode">
+            cdn节点添加
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
+          <a class="navbar-item" href="http://192.168.0.26:5000/nodegroup">
+            cdn节点分组
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+            <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          加速配置
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://192.168.0.26:5000/cachereget">
+            缓存预加载
           </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
+          <a class="navbar-item" href="http://192.168.0.26:5000/cacheclean">
+            清理缓存
           </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
+          <a class="navbar-item" href="http://192.168.0.26:5000/cacheconfig">
+            缓存配置
           </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
+           <a class="navbar-item" href="http://192.168.0.26:5000/cacheconfig">
+            四层加速
           </a>
         </div>
       </div>
@@ -91,355 +143,42 @@
 
 
 
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
+                  <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          账号管理
         </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
+      </div>
+
+                  <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          联系客服
+        </a>
       </div>
 
 
 
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
-
-
-
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
-
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
-
-
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
-
-
-
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
-
-
-
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
-
-
-
-
-
-        <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-          Docs
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-            Overview
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-            Modifiers
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-            Columns
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-            Layout
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-            Form
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-            Elements
-          </a>
-          <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
-            Components
-          </a>
-        </div>
-      </div>
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="field is-grouped">
-          <p class="control">
-            <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="https://bulma.io" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=https://bulma.io&amp;via=jgthms">
-              <span class="icon">
-                <i class="fab fa-twitter"></i>
-              </span>
-              <span>
-               登录
-              </span>
-            </a>
-          </p>
-
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
         </div>
       </div>
     </div>
   </div>
 </nav>
 
+<!-- img src="static/index.png" width="100%" height="100%" -->
 
-
- <div class="container is-fluid">
-  <div class="notification is-primary">
-    This container is <strong>fluid</strong>: it will have a 32px gap on either side, on any
-    viewport size.dfasfda</br>
-      sadf</br>
-      asdfasdfasdfasdf</br>
-
-
-      sdfasdfasdf</br>
-
-      sdfasdfasdf</br>
-
-
-      sfdasdfasdf </br>
-      sadfasdfasdf </br>
-       viewport size.dfasfda</br>
-      sadf</br>
-      asdfasdfasdfasdf</br>
-
-
-      sdfasdfasdf</br>
-
-      sdfasdfasdf</br>
-
-
-      sfdasdfasdf </br>
-      sadfasdfasdf </br> viewport size.dfasfda</br>
-      sadf</br>
-      asdfasdfasdfasdf</br>
-
-
-      sdfasdfasdf</br>
-
-      sdfasdfasdf</br>
-
-
-      sfdasdfasdf </br>
-      sadfasdfasdf </br>
-       viewport size.dfasfda</br>
-      sadf</br>
-      asdfasdfasdfasdf</br>
-
-
-      sdfasdfasdf</br>
-
-      sdfasdfasdf</br>
-
-
-      sfdasdfasdf </br>
-      sadfasdfasdf </br>
-       viewport size.dfasfda</br>
-      sadf</br>
-      asdfasdfasdfasdf</br>
+{% block content %}{% endblock %}
 
 
 
-
-  </div>
-</div>
-
-
-
-
- </body>
- </html>
+</body>
+</html>
