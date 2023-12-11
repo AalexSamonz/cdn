@@ -1,0 +1,10 @@
+以下是一些常见的错误配置：
+
+ETag响应头不存在
+如果ETag响应头不存在，则CDN无法判断缓存中的资源是否过期。
+
+Last-Modified响应头不存在
+如果Last-Modified响应头不存在，则CDN无法判断缓存中的资源是否过期。
+
+Cache-Control响应头中的max-age参数设置不正确
+如果Cache-Control响应头中的max-age参数设置不正确，则CDN可能会缓存过期或过早失效的资源。
